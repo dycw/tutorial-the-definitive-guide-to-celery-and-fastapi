@@ -1,5 +1,6 @@
 from logging import getLogger
 from random import choice
+from sys import stdout
 
 from beartype import beartype
 from celery.result import AsyncResult
@@ -12,6 +13,7 @@ from requests import post
 from project.users import users_router
 from project.users.schemas import UserBody
 from project.users.tasks import sample_task
+from project.users.tasks import task_process_notification
 
 
 logger = getLogger(__name__)
@@ -60,4 +62,11 @@ def webhook_test() -> str:
 
     # blocking process
     _ = post("https://httpbin.org/delay/5")
+    return "pong"
+
+
+@users_router.post("/webhook_test_2/")
+def webhook_test_2() -> str:
+    task = task_process_notification.delay()
+    _ = stdout.write(f"{task.id}\n")
     return "pong"
