@@ -23,6 +23,10 @@ class BaseConfig:
     )
     CELERY_TASK_ALWAYS_EAGER: bool = True
 
+    WS_MESSAGE_QUEUE: str = getenv(
+        "WS_MESSAGE_QUEUE", "redis://127.0.0.1:6379/0"
+    )
+
 
 class DevelopmentConfig(BaseConfig):
     pass

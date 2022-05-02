@@ -12,7 +12,10 @@ authors = ["Derek Wan <d.wan@icloud.com>"]
 [tool.poetry.dependencies]
 python = "^3.10"
 alembic = "^1.7.7"
+asgiref = "^3.5.1"
+asyncio-redis = "^0.16.0"
 beartype = "^0.10.4"
+broadcaster = "^0.2.0"
 celery = "^5.2.6"
 fastapi = "0.75.2"
 flower = "^1.0.0"
