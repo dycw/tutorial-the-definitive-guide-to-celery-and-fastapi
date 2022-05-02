@@ -1,7 +1,6 @@
 from json import dumps
 from json import loads
 
-from beartype import beartype
 from fastapi import WebSocket
 
 from project import broadcast
@@ -10,7 +9,7 @@ from project.ws import ws_router
 
 
 @ws_router.websocket("/ws/task_status/{task_id}")
-@beartype
+# @beartype
 async def ws_task_status(websocket: WebSocket) -> None:
     await websocket.accept()
 
@@ -25,7 +24,7 @@ async def ws_task_status(websocket: WebSocket) -> None:
             await websocket.send_json(loads(event.message))
 
 
-@beartype
+# @beartype
 async def update_celery_task_status(task_id: str) -> None:
     """
     This function is called by Celery worker in task_postrun signal handler

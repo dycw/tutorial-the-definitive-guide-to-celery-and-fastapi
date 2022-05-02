@@ -21,7 +21,7 @@ class BaseConfig:
     CELERY_RESULT_BACKEND: str = getenv(
         "CELERY_RESULT_BACKEND", "redis://127.0.0.1:6379/0"
     )
-    CELERY_TASK_ALWAYS_EAGER: bool = True
+    CELERY_TASK_ALWAYS_EAGER: bool = False
 
     WS_MESSAGE_QUEUE: str = getenv(
         "WS_MESSAGE_QUEUE", "redis://127.0.0.1:6379/0"
