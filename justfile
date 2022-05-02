@@ -5,7 +5,15 @@ lint:
   DOCKER_BUILDKIT=1 docker build -t=docker-template --target=lint .
 
 local:
-  poetry run uvicorn --host=localhost --port=8000 --reload app.main:app
+  poetry run uvicorn --host=localhost --port=8000 --reload main:app
 
 test:
   DOCKER_BUILDKIT=1 docker build -t=docker-template --target=test .
+
+#### commands #################################################################
+
+worker:
+  celery -A app.main.celery worker --loglevel=info
+
+flower:
+  celery -A app.main.celery flower --port=5555
