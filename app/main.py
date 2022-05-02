@@ -1,27 +1,26 @@
+from celery import Celery
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel
 
 
 app = FastAPI()
 
 
-class Item(BaseModel):
-    name: str
-    price: float
-    is_offer: bool = False
+celery = Celery(
+    __name__,
+    broker="redis://127.0.0.1:6379/0",
+    backend="redis://127.0.0.1:6379/0",
+)
 
 
 @app.get("/")
-def read_root() -> JSONResponse:
-    return JSONResponse({"Hello": "World"})
+async def root() -> JSONResponse:
+    return JSONResponse({"message": "Hello World"})
 
 
-@app.get("/items/{item_id}")
-def read_item(*, item_id: int, q: str | None = None) -> JSONResponse:
-    return JSONResponse({"item_id": item_id, "q": q})
+@celery.task(name="app.main.divide")  # type: ignore
+def divide(x: float, y: float) -> float:
+    import time
 
-
-@app.put("/items/{item_id}")
-def update_item(*, item_id: int, item: Item) -> JSONResponse:
-    return JSONResponse({"item_name": item.name, "item_id": item_id})
+    time.sleep(3)
+    return x / y
