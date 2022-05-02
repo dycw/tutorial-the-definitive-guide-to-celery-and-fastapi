@@ -1,6 +1,3 @@
-from beartype import beartype
-from watchgod import run_process
-
 from project import create_app
 
 
@@ -9,8 +6,10 @@ celery = app.celery_app  # type: ignore
 
 
 if __name__ == "__main__":
-
     from subprocess import check_call  # noqa: S404
+
+    from beartype import beartype
+    from watchgod import run_process
 
     @beartype
     def celery_worker() -> None:
