@@ -13,6 +13,7 @@ authors = ["Derek Wan <d.wan@icloud.com>"]
 python = "^3.10"
 celery = "^5.2.6"
 fastapi = "0.75.2"
+flower = "^1.0.0"
 gunicorn = "^20.0.4"
 redis = "^4.2.2"
 uvicorn = { version = "^0.17.6", extras = ["standard"] }
