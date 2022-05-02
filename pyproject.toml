@@ -12,6 +12,7 @@ authors = ["Derek Wan <d.wan@icloud.com>"]
 [tool.poetry.dependencies]
 python = "^3.10"
 alembic = "^1.7.7"
+beartype = "^0.10.4"
 celery = "^5.2.6"
 fastapi = "0.75.2"
 flower = "^1.0.0"
