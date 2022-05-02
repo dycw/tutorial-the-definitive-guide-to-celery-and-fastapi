@@ -246,6 +246,14 @@ zookeeper = ["kazoo (>=1.3.1)"]
 zstd = ["zstandard"]
 
 [[package]]
+name = "celery-types"
+version = "0.12.0"
+description = "Type stubs for Celery and its related packages"
+category = "dev"
+optional = false
+python-versions = ">=3.7,<4.0"
+
+[[package]]
 name = "certifi"
 version = "2021.10.8"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -1478,7 +1486,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "f67d2ad79e076bdb2036380ed2bd2f908a6700aed3fdfe8199fe51e2ff6410eb"
+content-hash = "0d96b4f27e4adf86283e8314ed4d6212e988d1b58eabb0b038eb8ad12a19ad7c"
 
 [metadata.files]
 alembic = [
@@ -1568,6 +1576,10 @@ black = [
 celery = [
     {file = "celery-5.2.6-py3-none-any.whl", hash = "sha256:da31f8eae7607b1582e5ee2d3f2d6f58450585afd23379491e3d9229d08102d0"},
     {file = "celery-5.2.6.tar.gz", hash = "sha256:d1398cadf30f576266b34370e28e880306ec55f7a4b6307549b0ae9c15663481"},
+]
+celery-types = [
+    {file = "celery-types-0.12.0.tar.gz", hash = "sha256:22a0b46d04508bbdb5074d070ebac6179550c2aa8506e1b05b74850d61d4fa82"},
+    {file = "celery_types-0.12.0-py3-none-any.whl", hash = "sha256:4648eeeafa10eabaf4e414e4a9546d8a5cfec0f025a325a4c42508d16273be5c"},
 ]
 certifi = [
     {file = "certifi-2021.10.8-py2.py3-none-any.whl", hash = "sha256:d62a0163eb4c2344ac042ab2bdf75399a71a2d8c7d47eac2e2ee91b9d6339569"},
