@@ -36,12 +36,12 @@ flake8-pie = "^0.15.0"
 flake8-print = "^5.0.0"
 flake8-simplify = "^0.19.2"
 flake8-unused-arguments = "^0.0.10"
+ipython = "^8.3.0"
 isort = "^5.10.1"
 poetry-deps-scanner = "^1.0.1"
 pre-commit = "^2.18.1"
 pytest = "^7.1.2"
 pytest-xdist = "^2.5.0"
-requests = "^2.23.0"
 
 #### black ####################################################################
 [tool.black]
