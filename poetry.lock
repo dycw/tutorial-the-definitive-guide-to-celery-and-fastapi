@@ -91,6 +91,17 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
+name = "asyncio-redis"
+version = "0.16.0"
+description = "PEP 3156 implementation of the redis protocol."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+hiredis = ["hiredis"]
+
+[[package]]
 name = "atomicwrites"
 version = "1.4.0"
 description = "Atomic file writes."
@@ -193,6 +204,19 @@ colorama = ["colorama (>=0.4.3)"]
 d = ["aiohttp (>=3.7.4)"]
 jupyter = ["ipython (>=7.8.0)", "tokenize-rt (>=3.2.0)"]
 uvloop = ["uvloop (>=0.15.2)"]
+
+[[package]]
+name = "broadcaster"
+version = "0.2.0"
+description = "Simple broadcast channels."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+kafka = ["aiokafka"]
+postgres = ["asyncpg"]
+redis = ["asyncio-redis"]
 
 [[package]]
 name = "celery"
@@ -1508,7 +1532,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "9f6507c822ee8f0e5b79efd2dc17644a1b8fc01b30fdaa3659ee23c8068f9bd0"
+content-hash = "a12e3bb72f588c13b07a1b93bd2cd67a8f804307ab025bb88dafe23b9fa3a1b6"
 
 [metadata.files]
 alembic = [
@@ -1542,6 +1566,10 @@ asttokens = [
 async-timeout = [
     {file = "async-timeout-4.0.2.tar.gz", hash = "sha256:2163e1640ddb52b7a8c80d0a67a08587e5d245cc9c553a74a847056bc2976b15"},
     {file = "async_timeout-4.0.2-py3-none-any.whl", hash = "sha256:8ca1e4fcf50d07413d66d1a5e416e42cfdf5851c981d679a09851a6853383b3c"},
+]
+asyncio-redis = [
+    {file = "asyncio_redis-0.16.0-py2.py3-none-any.whl", hash = "sha256:4a134fde5ea3628ff0c7118e2424b0f26140a1bd21d5e4632058f1f662773686"},
+    {file = "asyncio_redis-0.16.0.tar.gz", hash = "sha256:ff8ce4e7e22a08e2688ae6b397aeac355473e343ce3c68ae3b713494318d848b"},
 ]
 atomicwrites = [
     {file = "atomicwrites-1.4.0-py2.py3-none-any.whl", hash = "sha256:6d1784dea7c0c8d4a5172b6c620f40b6e4cbfdf96d783691f2e1302a7b88e197"},
@@ -1594,6 +1622,10 @@ black = [
     {file = "black-22.3.0-cp39-cp39-win_amd64.whl", hash = "sha256:9b542ced1ec0ceeff5b37d69838106a6348e60db7b8fdd245294dc1d26136265"},
     {file = "black-22.3.0-py3-none-any.whl", hash = "sha256:bc58025940a896d7e5356952228b68f793cf5fcb342be703c3a2669a1488cb72"},
     {file = "black-22.3.0.tar.gz", hash = "sha256:35020b8886c022ced9282b51b5a875b6d1ab0c387b31a065b84db7c33085ca79"},
+]
+broadcaster = [
+    {file = "broadcaster-0.2.0-py3-none-any.whl", hash = "sha256:50f93d1af7e9097a87ef3b2da269b4b4c5630ec080dc5c7f941ef314291937b1"},
+    {file = "broadcaster-0.2.0.tar.gz", hash = "sha256:72056f9b77b091dd4bbad4d7484bd0e6835c3443d4564d0bbf41190c29c606c6"},
 ]
 celery = [
     {file = "celery-5.2.6-py3-none-any.whl", hash = "sha256:da31f8eae7607b1582e5ee2d3f2d6f58450585afd23379491e3d9229d08102d0"},

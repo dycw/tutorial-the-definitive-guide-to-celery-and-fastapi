@@ -1,8 +1,10 @@
 from random import choice
 from typing import Any
 
+from asgiref.sync import async_to_sync
 from beartype import beartype
 from celery import shared_task
+from celery.signals import task_postrun
 from celery.utils.log import get_task_logger
 from requests import post
 
@@ -43,3 +45,11 @@ def task_process_notification(self: Any) -> None:
     except Exception as e:
         logger.error("exception raises, it will be retried after 5 seconds")
         raise self.retry(exc=e, countdown=5)
+
+
+@task_postrun.connect
+@beartype
+def task_postrun_handler(task_id: str, **kwargs: Any) -> None:
+    from project.ws.views import update_celery_task_status
+
+    async_to_sync(update_celery_task_status)(task_id)
