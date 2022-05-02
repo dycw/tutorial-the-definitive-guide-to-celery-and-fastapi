@@ -18,7 +18,7 @@ async def root() -> JSONResponse:
     return JSONResponse({"message": "Hello World"})
 
 
-@celery.task(name="app.main.divide")  # type: ignore
+@celery.task(name="app.main.divide")
 def divide(x: float, y: float) -> float:
     import time
 
