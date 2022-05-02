@@ -9,10 +9,18 @@ from typing import Any
 @dataclass
 class BaseConfig:
     BASE_DIR: Path = Path(__file__).parent.parent
+
     DATABASE_URL: str = getenv(
         "DATABASE_URL", f"sqlite:///{BASE_DIR}/db.sqlite3"
     )
     DATABASE_CONNECT_DICT: dict[str, Any] = field(default_factory=dict)
+
+    CELERY_BROKER_URL: str = getenv(
+        "CELERY_BROKER_URL", "redis://127.0.0.1:6379/0"
+    )
+    CELERY_RESULT_BACKEND: str = getenv(
+        "CELERY_RESULT_BACKEND", "redis://127.0.0.1:6379/0"
+    )
 
 
 class DevelopmentConfig(BaseConfig):
