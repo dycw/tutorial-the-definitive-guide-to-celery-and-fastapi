@@ -75,3 +75,10 @@ def webhook_test_2() -> str:
 @users_router.get("/form_ws/")
 def form_ws_example(request: Request) -> Response:
     return templates.TemplateResponse("form_ws.html", {"request": request})
+
+
+@users_router.get("/form_socketio/")
+def form_socketio_example(request: Request) -> Response:
+    return templates.TemplateResponse(
+        "form_socketio.html", {"request": request}
+    )

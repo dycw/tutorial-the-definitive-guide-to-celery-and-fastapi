@@ -27,6 +27,11 @@ def create_app() -> FastAPI:
 
     app.include_router(ws_router)
 
+    # socketio
+    from project.ws.views import register_socketio_app
+
+    register_socketio_app(app)
+
     @app.on_event("startup")  # type: ignore
     async def startup_event() -> None:  # type: ignore
         await broadcast.connect()
