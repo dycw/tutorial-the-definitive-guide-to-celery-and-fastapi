@@ -13,10 +13,10 @@ test:
 #### commands #################################################################
 
 worker:
-  celery -A app.main.celery worker --loglevel=info
+  celery -A main.celery worker --loglevel=info
 
 flower:
-  celery -A app.main.celery flower --port=5555
+  celery -A main.celery flower --port=5555
 
 alembic-rev:
   alembic revision --autogenerate
