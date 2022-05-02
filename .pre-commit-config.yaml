@@ -3,6 +3,8 @@ ci:
 
 default_stages: [commit]
 
+exclude: ^alembic/versions
+
 repos:
   # fixers
   - repo: https://github.com/asottile/pyupgrade

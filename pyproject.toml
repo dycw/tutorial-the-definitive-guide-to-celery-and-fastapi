@@ -75,6 +75,7 @@ virtual_env = ".venv/bin/python"
 #### pyright ##################################################################
 [tool.pyright]
 include = ["app", "tests"]
+exclude = ["alembic"]
 executionEnvironments = [{ root = "app" }]
 typeCheckingMode = "strict"
 reportMissingTypeArgument = false

@@ -17,3 +17,9 @@ worker:
 
 flower:
   celery -A app.main.celery flower --port=5555
+
+alembic-rev:
+  alembic revision --autogenerate
+
+alembic-up:
+  alembic upgrade head
